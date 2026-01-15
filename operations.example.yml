@@ -1,29 +1,25 @@
+defaults:
+  interval: 5m
+  lookback: "1d"
+  time_input_timezone: Asia/Kolkata
+
 operations:
   - name: fetch_kline_data
     type: fetch
     symbol: BTCUSDT
-    interval: 5m
-    lookback: "1d"
     start_time:
     end_time:
-    time_input_timezone: Asia/Kolkata
 
   - name: fetch_volume_stats
     type: volume_stats
     symbol: BTCUSDT
-    interval: 5m
-    lookback: "1d"              # or leave empty and set start_time/end_time below
     start_time:
     end_time:
-    time_input_timezone: Asia/Kolkata
 
   - name: generate_btc_slice
     type: generate_sliced_csv
     symbol: BTCUSDT
-    interval: 5m
-    lookback: "1d"
     start_time:
     end_time:
-    time_input_timezone: Asia/Kolkata
     # optional: override slice output path
     # slice_output_path: ./data/custom_btc_slice.csv

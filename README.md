@@ -26,7 +26,8 @@ Python utility to pull OHLCV (candlestick) data from Binance and push it into a 
     cp operations.example.yml operations.yml
     # add your named operations with symbol, interval, time window, and optional time_input_timezone
     ```
-    -   `start_time`/`end_time` in `operations.yml` are interpreted using `time_input_timezone` on that operation (or as-is if omitted).
+    -   You can define `defaults` at the top of `operations.yml` (e.g., interval, lookback, time_input_timezone) and override per operation.
+    -   `start_time`/`end_time` in `operations.yml` are interpreted using `time_input_timezone` (from the op or defaults).
 
 ## Usage
 
@@ -52,6 +53,11 @@ Python utility to pull OHLCV (candlestick) data from Binance and push it into a 
 -   Interactive TUI (prompt-toolkit): select an operation and override parameters via prompts:
     ```bash
     python -m app.tui
+    ```
+-   Analyze a CSV with Qwen (requires a GPU-ready environment with the model available):
+    ```bash
+    python -m app.analyze --csv data/BTCUSDT_5m.csv --instructions data/instructions.txt --model Qwen/Qwen2.5-32B-Instruct --max-rows 200
+    # optional: --columns timestamp open high low close volume
     ```
 
 ## How it works
