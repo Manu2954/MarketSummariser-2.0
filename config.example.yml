@@ -1,0 +1,12 @@
+excel:
+  path: ./data/{symbol}_{interval}.csv   # CSV output path (supports {symbol}/{interval} tokens)
+  append: true                           # true=append+dedupe, false=overwrite on each run
+  sheet_name: "{symbol}_{interval}"      # kept for compatibility, ignored for CSV
+
+request:
+  limit: 1000                # Binance max is 1000 klines per call
+  rate_limit_sleep: 0.2      # seconds between paged requests
+  timeout: 30                # seconds per HTTP request
+
+timezone: "Asia/Kolkata"     # Data stored in this timezone; set to "" to skip conversion
+logging_level: "INFO"
