@@ -27,8 +27,9 @@ def load_operations(path: Path) -> dict[str, OperationSpec]:
     items = data.get("operations") or []
     specs: dict[str, OperationSpec] = {}
 
-    def field(item: dict, key: str) -> Optional[str]:
+    def field(item: dict, key: str):
         return item.get(key, defaults.get(key))
+
 
     for item in items:
         name = item.get("name")

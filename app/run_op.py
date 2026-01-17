@@ -244,7 +244,6 @@ def main() -> int:
         return run_fetch(op, cfg, logger)
     if op.type == "generate_sliced_csv":
         return run_generate_slice(op, cfg, logger)
-
     logger.error(f"Unsupported operation type: {op.type}")
     return 1
 
