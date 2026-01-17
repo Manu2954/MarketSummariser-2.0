@@ -59,6 +59,11 @@ Python utility to pull OHLCV (candlestick) data from Binance and push it into a 
     python -m app.analyze --csv data/BTCUSDT_5m.csv --instructions data/instructions.txt --model Qwen/Qwen2.5-32B-Instruct --max-rows 200
     # optional: --columns timestamp open high low close volume
     ```
+-   Simple web UI (Streamlit) to run existing operations without affecting CLI:
+    ```bash
+    streamlit run app/ui.py
+    # then select your operation and inputs in the browser
+    ```
 
 ## How it works
 
